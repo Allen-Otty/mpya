@@ -1,0 +1,198 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg: #ffffff;
+    --card: #f2faf1;
+    --card-subtle: #f7fcf6;
+    --ink: #26382a;
+    --mut: #6f8173;
+    --g: #43a047;
+    --g2: #dff3df;
+    --line: #e6efe4;
+    --warn: #b26a00;
+    --warn-bg: #fff4e0;
+
+    /* Authentic Claymorphism Shadows from Mavuno Specification */
+    --cl: 10px 10px 22px rgba(80, 120, 80, 0.16), -6px -6px 16px rgba(255, 255, 255, 0.95), inset 3px 3px 8px rgba(255, 255, 255, 0.95), inset -5px -5px 12px rgba(80, 130, 80, 0.10);
+    --cl-white: 8px 10px 20px rgba(80, 120, 80, 0.12), -6px -6px 14px rgba(255, 255, 255, 0.98), inset 3px 3px 6px rgba(255, 255, 255, 0.95), inset -3px -3px 8px rgba(80, 130, 80, 0.06);
+    --cp: 6px 6px 14px rgba(80, 120, 80, 0.16), -4px -4px 10px #ffffff, inset 2px 2px 5px #ffffff, inset -3px -3px 7px rgba(80, 130, 80, 0.12);
+    --cg: 8px 8px 18px rgba(58, 154, 67, 0.35), inset 3px 3px 8px rgba(255, 255, 255, 0.45), inset -5px -5px 10px rgba(0, 80, 0, 0.25);
+    --ci: inset 4px 4px 9px rgba(80, 120, 80, 0.16), inset -3px -3px 8px rgba(255, 255, 255, 0.95);
+    --gr: linear-gradient(145deg, #5cc062, #3a9a43);
+  }
+
+  body {
+    background: #ffffff;
+    color: var(--ink);
+    font-family: "Nunito", ui-rounded, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+}
+
+/* Claymorphic Containers */
+.clay-card {
+  background: var(--card);
+  border: 0;
+  border-radius: 26px;
+  box-shadow: var(--cl);
+  transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.18s ease;
+}
+
+.clay-card-white {
+  background: #ffffff;
+  border: 0;
+  border-radius: 26px;
+  box-shadow: var(--cl-white);
+  transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.18s ease;
+}
+
+.clay-map-frame {
+  background: #ffffff;
+  border: 0;
+  border-radius: 30px;
+  box-shadow: var(--cl);
+  overflow: hidden;
+}
+
+/* Claymorphic Buttons */
+.clay-btn-primary {
+  border: 0;
+  border-radius: 22px;
+  background: var(--gr);
+  color: #ffffff;
+  box-shadow: var(--cg);
+  font-family: inherit;
+  font-weight: 700;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.clay-btn-primary:active {
+  transform: scale(0.97);
+  box-shadow: 4px 4px 10px rgba(58, 154, 67, 0.3), inset 3px 3px 6px rgba(0, 80, 0, 0.3);
+}
+
+.clay-btn-primary:disabled {
+  box-shadow: var(--cp);
+  background: #e5ece3;
+  color: #9aa89c;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.clay-btn-secondary {
+  border: 0;
+  border-radius: 20px;
+  background: linear-gradient(145deg, #ffffff, #e4f3e2);
+  color: var(--g);
+  box-shadow: var(--cp);
+  font-family: inherit;
+  font-weight: 700;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.clay-btn-secondary:active {
+  transform: scale(0.97);
+  box-shadow: 3px 3px 8px rgba(80, 120, 80, 0.15), inset 2px 2px 4px rgba(80, 130, 80, 0.1);
+}
+
+/* Claymorphic Chips, Tabs, & Pills */
+.clay-chip,
+.clay-tab,
+.clay-pill {
+  border: 0;
+  border-radius: 22px;
+  background: var(--card);
+  box-shadow: var(--cp);
+  font-family: inherit;
+  font-weight: 700;
+  color: var(--ink);
+  transition: transform 0.12s ease, background 0.15s ease, box-shadow 0.15s ease;
+}
+
+.clay-chip:active,
+.clay-tab:active,
+.clay-pill:active {
+  transform: scale(0.97);
+}
+
+.clay-chip-on,
+.clay-tab-on,
+.clay-pill-active {
+  background: var(--gr) !important;
+  color: #ffffff !important;
+  box-shadow: var(--cg) !important;
+}
+
+/* Recessed Inset Basin Fields */
+.clay-input,
+.clay-inset-well {
+  border: 0;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: var(--ci);
+  font-family: inherit;
+  color: var(--ink);
+  transition: box-shadow 0.15s ease;
+}
+
+.clay-input:focus {
+  outline: none;
+  box-shadow: inset 4px 4px 10px rgba(67, 160, 71, 0.25), inset -3px -3px 8px #ffffff;
+}
+
+/* Circular Quantity Stepper */
+.clay-qty-btn {
+  border: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #ffffff, #e4f3e2);
+  box-shadow: var(--cp);
+  font-weight: 800;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+.clay-qty-btn:active {
+  transform: scale(0.93);
+}
+
+/* Badges & Notices */
+.clay-badge {
+  border: 0;
+  border-radius: 9999px;
+  box-shadow: var(--cp);
+  font-weight: 700;
+}
+
+.clay-ver {
+  background: #e3f5e3;
+  color: var(--g);
+}
+
+.clay-unv {
+  background: #fff3e0;
+  color: var(--warn);
+}
+
+.clay-demo-banner {
+  border: 0;
+  border-radius: 20px;
+  background: var(--warn-bg);
+  box-shadow: var(--cp);
+  color: var(--warn);
+}
+
+/* Thumbnails and Photos */
+.clay-thumb {
+  border-radius: 18px;
+  box-shadow: 4px 4px 10px rgba(80, 120, 80, 0.2);
+}
+
+.clay-pin-dot {
+  filter: drop-shadow(2px 4px 3px rgba(0, 0, 0, 0.28));
+}
